@@ -6,7 +6,7 @@ const productHelpers = require('../helpers/product-helpers');
 let categoryHelpers=require('../helpers/category-helpers')
 const math=require('mathjs')
 const multer=require("../helpers/multer");
-const puppeteer = require("puppeteer");
+
  
 const fs = require("fs-extra");
  
@@ -49,12 +49,12 @@ let verify2 = ((req,res,next)=>{
   }
 })
 router.get('/adminhome',verify2,async(req, res, next)=> {
-  // let paymentGrph=await productHelpers.paymentGraph()
-  // let sales=await productHelpers.salesGrph()
-  // let orders=await productHelpers.totalOrders()
-  // let users=await productHelpers.totalUsers()
-  // let products=await productHelpers.totalProducts()
-  // let revenue=await productHelpers.totalRevenue()
+  let paymentGrph=await productHelpers.paymentGraph()
+  let sales=await productHelpers.salesGrph()
+  let orders=await productHelpers.totalOrders()
+  let users=await productHelpers.totalUsers()
+  let products=await productHelpers.totalProducts()
+  let revenue=await productHelpers.totalRevenue()
   res.render('admin/admin-home' ,{ admin:true,title: 'Admin Home' , link1: '/stylesheets/admin-home.css' });
 });
 
