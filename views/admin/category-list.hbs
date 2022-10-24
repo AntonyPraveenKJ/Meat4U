@@ -1,0 +1,41 @@
+<section>
+   
+    <div class="container">
+    
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     <th scope="col">No</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th></th>
+      <th scope="col">Remove</th>
+     
+    </tr> 
+  </thead>
+  <tbody>
+    {{#each categoryDetails}}
+    <tr>
+     <td><b>{{inc @index}}</b></td>
+       <td>{{this.category_name}}</td>
+      <td>{{this.description}}</td>
+      <td><span id="catExt{{this.category_name}}" class="text-danger"></span></td>
+     <td><button class="btn btn-danger btn-sm" onclick="removeCategory('{{this._id}}','{{this.category_name}}')">Remove</button> </td>
+   
+     
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+
+    <div class="text-end">
+      <div style="margin-right:10%">
+         <a href="/admin/backToCategory" class="btn btn-primary">Back</a>
+      </div>
+   </div>
+</section>
+
+
+ <script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/plugins-init/datatables.init.js"></script>

@@ -1,0 +1,69 @@
+<div class="logo">
+    <img src="../images/logo2.png" alt="logo">
+</div>
+
+<div class="slogan">
+<div>
+    <h5 class="text-left text-white  fs-1 fw-normal ms-auto lh-lg">"We Provide the Best Meat in the industry. No added Preservatives. Processed in a Hygienic atmosphere. Your trusted  Meat4U... "</h5>
+</div>
+</div>
+
+<div class=" d-flex justify-content-center align-items-center">
+    <div class="logform col-md-4 p-4 shadow-sm bg-white border rounded-3 border-warning">
+        <h1 class="text-center mb-4">SignUp Form</h1>
+        <form action="/login/signup" method="POST" onsubmit="return myFunc()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" {{#if emailExists}}value="{{signupName}}" {{/if}} onkeyup="nameValidate()"
+                    class="form-control border border-dark" id="name01" name="Name" />
+                <div class="nameError"></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" {{#if emailExists}}value="{{signupEmail}}" {{/if}} onkeyup="emailValidate()"
+                    class="form-control border border-dark" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="Email" />
+                <div class="emailError"></div>
+                {{#if emailExists}}
+                <p class="bhh ">Email already exists!</p>
+                {{/if}}
+            </div>
+
+             <div class="mb-3">
+                <label  class="form-label">Address</label>
+                <input type="text" class="form-control border border-dark" id="Address" name="Address" />
+               
+            </div>
+               
+                <div class="mb-3">
+                <label  class="form-label">Mobile Number</label>
+                <input type="text" class="form-control border border-dark" id="Number" name="Number" />
+               
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">New Password</label>
+                <input type="password" onkeyup="passValidate()" class="form-control border border-dark"
+                    id="exampleInputPassword1" name="Password" />
+                <div class="passError"></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                <input type="password" onkeyup="pass2Validate()" class="form-control border border-dark"
+                    id="exampleInputPassword2" />
+                <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+            </div>
+            <div class="logbtn text-center">
+                <button  type="submit">SignUp</button>
+            </div>
+
+        </form>
+        <div class="mt-3">
+            <p class="mb-0 text-center">Already have an account?
+                <a href="/login" class="text-primary fw-bold">Login</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+

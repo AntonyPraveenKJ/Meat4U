@@ -1,0 +1,72 @@
+<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="/img/meat/logo2.png" alt="">
+							</a>
+						</div>
+						<!-- logo -->
+
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li class="current-list-item"><a href="/login/userhome">Home</a></li>
+
+
+								<li><a href="/login/about">About</a></li>
+							
+									
+							    <li><a href="/login/my-profile">My Profile</a></li>
+								<li><a href="#">Shop</a>
+									<ul class="sub-menu">
+										<li><a href="/login/viewproducts">Products</a></li>
+										<li><a href="/login/orders">Order Details</a></li>
+										<li><a href="/login/wishlist">Wishlist</a></li>
+										<li><a href="/login/cart">Cart</a></li>
+									</ul>
+								</li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="/login/wishlist"><i class="fas fa-heart"><span class="badge bg-success" id="wishlist-count">{{wishlistCount}}</span></i></a>
+										<a class="shopping-cart" href="/login/cart"><i class="fas fa-shopping-cart"><span class="badge bg-success" id="cart-count">{{cartCount}}</span></i></a>
+									</div>
+								</li>
+								</ul>
+     
+                   <div>
+							<div class="logoutbtn d-flex justify-content-end align-items-end" style="height: 21px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#002ed5" class="bi bi-person-fill" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        </svg>
+        <div class="">
+          {{#if user}}
+          <p style="color:azure;font-weight:bold">{{user.Name}}</p>
+          {{/if}}
+        </div>
+        </div>
+		<div class="text-end">
+        <a href="/login/logout"><button class="btn btn-outline-warning" type="submit">Logout</button></a>
+		</div>
+		</div>
+	
+	
+    </div>
+  </div> 
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+        
+       
+</nav>

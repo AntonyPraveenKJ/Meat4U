@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+body {
+    background-image: url(../images/NicePng_blue-gradient-png_498173.png);
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+#hov{
+    color: #002ed5;
+}
+#hov2:hover{
+    color: #002ed5;
+}
+
+.logoutbtn{
+    margin-right: 0px;
+}.btn-outline-warning{
+    color:orangered;
+    border-color: orangered;
+}
+
+.btn-outline-warning:hover{
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+}
+
+.logo{
+  margin-left: 53%;
+  margin-top: -4%;
+}
+
+.slogan{
+    width:24%;
+    margin-left:72%;
+    margin-top: -40vh;
+    font-family: 'Amatic SC', cursive;
+}

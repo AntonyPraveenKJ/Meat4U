@@ -1,0 +1,78 @@
+<section>
+
+    <div class="container">
+   
+    <div class="orderlist">
+   
+         <table  id="tbl_exporttable_to_xls"  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     
+      <th scope="col">No</th>
+      <th scope="col">Address</th>
+      <th scope="col">Pincode</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Sub Total</th>
+       <th scope="col">Payment Method</th>
+        <th scope="col">Status</th>
+        <th scope="col">View Products</th>
+        <th scope="col">Cancel Option</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      
+    <td><b>{{inc @index}}</b></td>
+      <td>{{this.deliveryDetails.address}}</td>
+      <td>{{this.deliveryDetails.pincode}}</td>
+      <td>{{this.deliveryDetails.mobile}}</td>
+      <td>{{this.totalAmount}}/-</td>
+      <td>{{this.paymentMethod}}</td>
+      <td>{{this.status}}</td>
+
+      <td>
+        <a href="/login/view-order-products/{{this._id}}" class="btn btn-success">View Products</a>
+      </td>
+     {{#ifEquals this.status 'placed'}}
+      <td>
+        <button id="cancelOrder" onclick="cancelOrder('{{this._id}}','{{this.status}}','{{this.userID}}')" class="btn btn-danger">Cancel</button>
+      </td>
+      {{else}}
+      {{#ifEquals this.status 'shipped'}}
+      <td>
+        <button id="cancelOrder" onclick="cancelOrder('{{this._id}}','{{this.status}}','{{this.userID}}')" class="btn btn-danger">Cancel</button>
+      </td>
+      {{else}}
+       {{#ifEquals this.status 'out for delivery'}}
+      <td>
+        <button id="cancelOrder" onclick="cancelOrder('{{this._id}}','{{this.status}}','{{this.userID}}')" class="btn btn-danger">Cancel</button>
+      </td>
+      {{else}}
+       {{#ifEquals this.status 'delivered'}}
+      <td><p class="text-success">"Order has been Delivered"</p></td>
+      {{else}}
+       {{#ifEquals this.status 'cancelled'}}
+      <td><p class="text-danger">"Order has been Cancelled"</p></td>
+      {{else}}
+       {{#ifEquals this.status 'cleared'}}
+      <td><p class="text-success">"Amount of returned product has been refunded!!"</p></td>
+      {{/ifEquals}}
+      {{/ifEquals}}
+      {{/ifEquals}}
+      {{/ifEquals}}
+      {{/ifEquals}}
+      {{/ifEquals}}
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+    </div>
+</section>
+
+
+
+  <script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/plugins-init/datatables.init.js"></script>

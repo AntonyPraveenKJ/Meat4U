@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="row p-4 text-center">
+
+    <div class="mt-2 d-flex  justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border rounded-5 bg-white  border-warning">
+    
+    <h1 class="frmtitle text-center mb-4 ">Update Coupon</h1>
+
+          <form action="/admin/editCoupon/{{coupon._id}}" method="POST" >
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" style="color:black ;">Coupon Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{coupon.name}}" name="name" placeholder="" required="" style=" border-style: solid; border-color:black">
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" style="color:black ;" >Coupon Code</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{coupon.code}}" name="code" placeholder="" required="" style=" border-style: solid; border-color:black">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" style="color:black ;">Minimum Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{coupon.minAmount}}" name="minAmount" placeholder="" required="" style=" border-style: solid; border-color:black">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" style="color:black ;">Maximum Amount</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{coupon.maxAmount}}" name="maxAmount" placeholder="" required="" style=" border-style: solid; border-color:black">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" style="color:black ;">Offer</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="{{coupon.offer}}" name="offer" placeholder="" required="" style=" border-style: solid; border-color:black">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label" style="color:black ;">Expiry Date</label >
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" value="{{coupon.expiryDate}}" name="expiryDate"
+                                                    placeholder="" required="" style=" border-style: solid; border-color:black">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Update Coupon</button>
+                                            </div>
+                                        </div>
+                                    </form>
+ </div>
+</div>
+    </div>
+</div>
+
+
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>

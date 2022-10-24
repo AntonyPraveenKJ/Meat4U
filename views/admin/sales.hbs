@@ -1,0 +1,60 @@
+  <div class="heading">
+  <h1>DAY<span>SALES</span>REPORT</h1>
+</div>
+<form action="/admin/day-sales" method="post">
+<div class="p-5">
+<label for="start">Date :</label>
+
+<input type="date" id="start" name="day"
+       value="2022-01-01"
+       min="2018-01-01" max="2026-12-31">
+
+       <div>
+<button  class="btn btn-sm btn-primary" type="submit">View Report</button>
+</div>
+</div>
+
+ </form>
+
+  <div class="heading">
+  <h1>MONTH<span>SALES</span>REPORT</h1>
+</div>
+<form action="/admin/month-sales-report" method="post">
+<div class="p-5">
+<label for="start">Month :</label>
+
+<input type="month" id="start" name="month"
+       min="2018-03" value="2022-01">
+
+       <div>
+<button  class="btn btn-sm btn-primary" type="submit">View Report</button>
+</div>
+
+</div>
+
+</form>
+
+<style>
+   label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+</style>
+      
+<script>
+    // Data Picker Initialization
+$(function(){
+  $('#datepicker').datepicker();
+});
+
+$('#yearPicker').datetimepicker({
+    format      :   "YYYY",
+    viewMode    :   "years", 
+});
+</script>

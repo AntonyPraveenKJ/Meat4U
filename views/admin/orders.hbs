@@ -1,0 +1,79 @@
+<section>
+   
+    <div class="container mt-5">
+    
+         <table id="tbl_exporttable_to_xls" class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Pincode</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Payment Method</th>
+      <th scope="col">Status</th>
+       <th scope="col">View Products</th>
+      <th scope="col">Select Status</th>
+       <th scope="col">Return Status</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orderDetails}}
+    <tr>
+       <td><b>{{inc @index}}</b></td>
+       <td>{{this.deliveryDetails.name}}</td>
+      <td>{{this.deliveryDetails.address}}</td>
+      <td>{{this.deliveryDetails.pincode}}</td>
+      <td>{{this.deliveryDetails.mobile}}</td>
+      <td>{{this.paymentMethod}}</td>
+      <td>{{this.status}}</td>
+      
+      
+     
+
+        <td>
+        <a href="/admin/view-order-Details/{{this._id}}" class="btn btn-success">View Products</a>
+      </td>
+       <td>
+       
+<div class="input-group mb-3">
+ 
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Status</button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#" onclick="changeStatus('{{this._id}}','ship')">Shipped</a></li>
+    <li><a class="dropdown-item" href="#" onclick="changeStatus('{{this._id}}','out for delivery')">Out for delivery</a></li>
+    <li><a class="dropdown-item" href="#" onclick="changeStatus('{{this._id}}','delivered')">Delivered</a></li>
+  </ul>
+</div>
+
+     
+      </td>
+
+       {{#ifEquals this.prostatus "returned"}}
+        <td><p class="text-danger">"Check Here A Product Returned!!"</p></td>
+         {{else}}
+        {{#ifEquals this.prostatus 'refunded'}}
+        <td><p class="text-success">"Amount Refunded Successfully"</p></td>
+        {{else}}
+         {{#ifEquals this.prostatus ''}}
+          <td><p class="text-primary">"No Products Returned"</p></td>
+        {{/ifEquals}}
+        {{/ifEquals}}
+        {{/ifEquals}}
+        
+         
+       
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>
+
+
+ <script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/plugins-init/datatables.init.js"></script>
+  
+
+   

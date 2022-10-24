@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <div class="row p-4 text-center">
+
+    <div class="mt-2 d-flex  justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border rounded-5 bg-white  border-warning">
+    
+    <h1 class="frmtitle text-center mb-4 ">Add Product</h1>
+
+    <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+       <div class="inputag text-start">
+        <div class="form-floating p-2">
+    <input type="text" name="ID" class="form-control" id="floatingInputGroup1" placeholder="Product ID">
+    <label for="floatingInputGroup1">Product ID</label>
+  </div>
+
+
+ <div class="form-floating p-2">
+    <input type="text"  name="name" class="form-control" id="floatingInputGroup1" placeholder="Product Name">
+    <label for="floatingInputGroup1">Product Name</label>
+  </div>
+
+
+ <div class="form-floating p-2">
+    <input type="text" name="price" class="form-control" id="floatingInputGroup1" placeholder="Price">
+    <label for="floatingInputGroup1">Price</label>
+  </div>
+
+  <div class="form-floating p-2">
+    <input type="text" name="stock" class="form-control" id="floatingInputGroup1" placeholder="Price">
+    <label for="floatingInputGroup1">Stock</label>
+  </div>
+
+  <div class="form-floating p-2">
+    <input type="number" name="offer" class="form-control" id="floatingInputGroup1" placeholder="Price" min="0" max="100" >
+    <label for="floatingInputGroup1">Offer</label>
+  </div>
+
+
+
+
+
+
+ <select class="form-select" aria-label="Default select example" name="category">
+   <option selected>Select Category</option>
+  {{#each options}}
+  <option value="{{this.category_name}}">{{this.category_name}}</option>
+ {{/each}}
+</select>
+<br>
+
+ <div class="form-floating p-2">
+    <input type="text" name="description" class="form-control" id="floatingInputGroup1" placeholder="Description">
+    <label for="floatingInputGroup1">Description</label>
+  </div>
+  <br>
+
+<br>
+<img src="/product-images/{{product.image.[0]}}" alt="" style="width: 100px; height: auto;" id="imgview1">
+   <img src="/product-images/{{product.image.[1]}}" alt="" style="width: 100px; height: auto;" id="imgview2">
+     <img src="/product-images/{{product.image.[2]}}" alt="" style="width: 100px; height: auto;" id="imgview3">
+        <img src="/product-images/{{product.image.[3]}}" alt="" style="width: 100px; height: auto;" id="imgview4">
+
+ <div class="input-group mb-3">
+   
+  <input multiple type="file"  id="product_images[]" accept="image/*r" onchange="viewImg(event)" name="image" class="form-control" id="inputGroupFile02">
+   <label class="input-group-text" for="inputGroupFile02">Image</label>
+</div>
+</div>
+
+<button  type="submit"  class="btn btn-primary">Upload</button>
+
+</form>
+ </div>
+</div>
+    </div>
+</div>
+
+
+<script defer src="https://cdn.crop.guide/loader/l.js?c=THYTPQ"></script>
+
+<script>
+      function viewImg(event){
+        document.getElementById('imgview1').src=URL.createObjectURL(event.target.files[0])
+        document.getElementById('imgview2').src=URL.createObjectURL(event.target.files[1])
+        document.getElementById('imgview3').src=URL.createObjectURL(event.target.files[2])
+        document.getElementById('imgview4').src=URL.createObjectURL(event.target.files[3])
+    }
+</script>

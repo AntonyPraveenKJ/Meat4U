@@ -1,0 +1,48 @@
+<section>
+   
+    <div class="container">
+   
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+       <th scope="col">Ordered Date</th>
+      <th scope="col">Product ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th></th>
+      <th></th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+     <td><b>{{inc @index}}</b></td>
+     <td>{{this.date}}</td>
+      <td>{{this.item}}</td>
+      <td>{{this.product.name}}</td>
+      <td>{{this.total}}</td>
+      <td>{{this.quantity}}</td>
+        {{#ifEquals this.proStatus 'returned'}}
+        <td><p class="text-danger">Product Returned</p></td>
+        <td><button onclick="refundMoney('{{this._id}}','{{this.userId}}','{{this.total}}','{{this.quantity}}','{{this.item}}')" class="btn btn-secondary btn-sm">Refund</button></td>
+        {{else}}
+        {{#ifEquals this.proStatus 'refunded'}}
+        <td><p class="text-success">Amount Refunded</p></td>
+        <td></td>
+        {{/ifEquals}}
+        {{/ifEquals}}
+      <td></td>
+      <td></td>
+      <td><img style="width:50px;height:50px" src="/product-images/{{this.product.image.[0]}}"></td>
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+body {
+    background-image: url(../images/raw-chicken-fillet-with-garlic-pepper-rosemary-wooden-chopping-board_1150-37785.webp);
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.nameError , .emailError , .passError , .pass2Error{
+    display: none;
+    color: rgb(220,53,69);
+    font-style: italic;
+    font-size: 15.5px;
+  }
+  .bhh{
+    color: rgb(220,53,69);
+    font-style: italic;
+    font-size: 15.5px;
+ }
+
+ #hov{
+    color: #f8f7f5;
+}
+
+#hov2:hover,#hov:hover{
+    color:orangered;
+}
+#hov2{
+    color:#f8f7f5;
+}
+
+
+
+h1{
+    color: orangered;
+    font-weight: bold;
+}
+
+.btn-outline-warning{
+    color:orangered;
+    border-color: orangered;
+}
+
+.btn-outline-warning:hover{
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+}
+
+.logo{
+  margin-left: 56%;
+  margin-top: -4%;
+}
+
+.slogan{
+    width:24%;
+    margin-left:72%;
+    margin-top: 6vh;
+    font-family: 'Amatic SC', cursive;
+}
+
+
+
+.logbtn button{
+    background-color: orangered; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 11%;
+}
+
+.logbtn button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .logform{
+    background-color: #f8f7f5;
+    border:5%;
+    border-color: orangered;
+    border-radius: 6%;
+    margin-top: -35%;
+  }
+
+  
+  
+  
+  

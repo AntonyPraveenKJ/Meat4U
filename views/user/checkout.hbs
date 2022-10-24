@@ -1,0 +1,361 @@
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search area -->
+
+	
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Fresh and Organic</p>
+						<h1>Check Out Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- check out section -->
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-8">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingOne">
+						      <h5 class="mb-0">
+						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						         Enter Shipping Address Details
+						        </button>
+						      </h5>
+						    </div>
+
+						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="billing-address-form">
+
+						        	<form action="" id="checkout-form">
+						        		<p><input type="text" placeholder="Name" id="name" name="name" value="{{address.name}}" required></p>
+										<p><input type="text" placeholder="Address" id="address" name="address" value="{{address.address}}" required></p>
+										<p><input type="tel" placeholder="Mobile" id="mobile" name="mobile" value="{{address.mobile}}" required></p>
+						        		<p><input type="text" placeholder="Pincode" id="pincode" name="pincode" value="{{address.pincode}}" required></p>
+						        	     <input type="hidden" name="userId" id="" value="{{user._id}}">
+						        		
+										
+						        	
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingThree">
+						      <h5 class="mb-0">
+						    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						         Select Shipping Address
+						        </button>
+						      </h5>
+						    </div>
+							
+							
+						    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="card-details">
+
+								{{#each addressFind}}
+								<div class="select-address border border-dark d-flex" style="gap:0px 50px">
+									<div>
+						        	<ul type="none">
+                                              <li> {{this.name}}</li>
+											   <li>{{this.address}}</li> 
+											  <li> {{this.mobile}}</li> 
+											   <li> {{this.pincode}}</li>
+											   
+											   
+											   </ul>
+											   </div>
+                                             <div class="mt-5" >
+											   <a href="/login/select-user-address/{{this._id}}"><button class="btn btn-success btn-sm" type="button"> Select</button></a>
+											   <button class="btn btn-danger btn-sm" type="button" onclick="removeFrmAddress('{{this._id}}','{{this.userId}}')">Remove</button>
+                                            </div>
+											   </div>
+
+                                              
+								   {{/each}}
+
+								    
+						        </div>
+						      </div>
+						    </div>
+							
+						  </div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="order-details-wrap">
+						<h4>Sub Total : <span id="subTotal">{{total}}</span>  /-Rs</h4>
+						<h4>Discount Rate : <span class="text-danger" id="discountRate"></span>  /-Rs</h4>
+					<div class="coupon-section">
+
+
+						<h3>Apply Coupon</h3>
+						<div class="coupon-form-wrap">
+							
+								<p><input type="text" placeholder="Coupon" id="couponName" value="" name="couponCode"></p>
+								<button onclick="applyCoupon(event)" id="applybutton"
+														class="btn btn-success">Apply coupon</button>
+						<p id="error" class="text-danger"></p>
+						</div>
+					</div>
+						
+                           <br>
+						   <p>Select payment method</p>
+
+                        <div class="form-check">
+  <input class="form-check-input" type="radio" name="payment-method" value="COD" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+   COD
+  </label>
+</div>
+
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="payment-method" value="wallet" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+  Wallet
+  </label>
+</div>
+<p id="error1" class="text-danger"></p>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="payment-method" value="razorpay" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+   Razorpay
+  </label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="payment-method" value="paypal" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+   Paypal
+  </label>
+</div>
+<br>
+
+						<button type="submit" style="
+  background-color:#F28123;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+">Check Out</button>
+					</div>
+				</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	<!-- end check out section -->
+
+	<!-- logo carousel -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end logo carousel -->
+
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">About us</h2>
+						<p>Ut enim ad minim veniam perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Get in Touch</h2>
+						<ul>
+							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+							<li>support@fruitkha.com</li>
+							<li>+00 111 222 3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Pages</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="services.html">Shop</a></li>
+							<li><a href="news.html">News</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
+	
+	<script>
+		   $("#checkout-form").submit((e)=>{
+            e.preventDefault()
+			$.ajax({
+				url:'/login/place-order',
+				method:'post',
+				data:$('#checkout-form').serialize(),
+				success:(response)=>{
+					if(response.codSuccess){
+						location.href='/login/order-success'
+					}else if(response.wallet){
+                         location.href='/login/order-success'
+					}else if(response.walletErr){
+                           document.getElementById('error1').innerHTML="Insufficient Balance In Your Wallet!"
+					}else if(response.razorpay){
+						razorpayPayment(response)
+					}else if(response.paypal){
+						console.log(response)
+						 location.href=response.link
+					}
+				}
+			})
+        });
+
+		    function razorpayPayment(order){
+				
+				var options = {
+    "key": "rzp_test_hgAYyEycsUwtIb", // Enter the Key ID generated from the Dashboard
+    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "MEAT4U",
+    "description": "Test Transaction",
+    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+      
+
+		verifyPayment(response,order)
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+ rzp1.open();
+			}
+
+       function verifyPayment(payment,order){
+		$.ajax({
+			url:'/login/verify-payment',
+			data:{
+				payment,
+				order
+			},
+			method:'post',
+			success:(response)=>{
+				if(response.status){
+					location.href='/login/order-success'
+				}else{
+					alert("Payment Falied")
+				}
+			}
+		})
+	   }
+
+
+	  
+
+	</script>

@@ -1,0 +1,134 @@
+
+
+
+
+
+                
+                            
+ <div class="heading">
+  <h1>DAY<span>SALES</span>REPORT</h1>
+</div>
+
+
+                            <section>
+                               
+    <div class="container">
+    <div id="tab">
+         <table id="tbl_exporttable_to_xls" class="table table-striped table-hover mt-5 bg-white">
+ 
+    
+  <thead>
+    <tr>
+        <th colspan="6" class="text-center">Meat4U</th>
+    </tr>
+    <tr>
+        <th colspan="6" class="text-center">Day Sales Report</th>
+    </tr>
+    <tr>
+        
+   
+                                                <th>No</th>
+                                                <th>Product Name</th>
+                                                <th>Date</th>
+                                                <th>price</th>
+                                                <th>quantity</th>
+                                                <th>Total price</th>
+    </tr>
+  </thead>
+  <tbody>
+   {{#each daySalesList }}
+                                            <tr>
+                                                <td><b>{{inc @index}}</b></td>
+                                                <td>{{this.name}}</td>
+                                                <td>{{this.date}}</td>
+                                                {{#if this.offer}}
+                                                <td>{{this.offerPrice}}</td>
+                                                {{else}}
+                                                <td>{{this.price}}</td>
+                                                {{/if}}
+                                                <td>{{this.quantity}}</td>
+                                                <td>{{this.total}}</td>
+                                               
+                                               
+                                            </tr>
+                                            {{/each}}
+
+
+                                              <tr>
+                                                    {{#each countOrder }}
+                                                <td><b>Total order :{{this.date}}</b></td>
+                                                {{/each}}
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                               
+                                                <td><b>Total Quantity:{{this.sum}}</b></td>
+                                                <td><b>total Price:{{this.totalPrice}}</b></td>
+                                            </tr>
+  </tbody>
+  
+   
+</table>
+   </div>
+     </div>
+   
+<div id="editor"></div>
+        <p class="d-flex" style="margin-left:10%; gap:0px 16px">
+      
+
+              <input type="button" id="btnExport" value="Export PDF" class="btn btn-primary"/>
+
+         
+             <button class="btn btn-primary" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+    </p>
+
+    
+   
+</section>
+
+
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+<script>
+    function ExportToExcel(type, fn, dl) {
+       var elt = document.getElementById('tbl_exporttable_to_xls');
+       var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+       return dl ?
+         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+</script>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        $("body").on("click", "#btnExport", function () {
+            html2canvas($('#tbl_exporttable_to_xls')[0], {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("day-sales-report.pdf");
+                }
+            });
+        });
+    </script>
+
+
+
+
+ <script src="/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/plugins-init/datatables.init.js"></script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
+
+   

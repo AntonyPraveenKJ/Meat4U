@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+body {
+    background-image: url(../images/raw-chicken-fillet-with-garlic-pepper-rosemary-wooden-chopping-board_1150-37785.webp);
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+#hov{
+    color: #f8f7f5;
+}
+
+#hov2:hover,#hov:hover{
+    color:orangered;
+}
+#hov2{
+    color:#f8f7f5;
+}
+
+span{
+    margin-left:10%;
+    color: #6c757d;
+    font-size:4em;
+    font-weight: bolder;
+    font-family: 'Lobster', cursive;
+}
+
+h1{
+    margin-left: 5%;
+    font-size:4em;
+    color: orangered;
+    font-weight: bolder;
+    font-family: 'Lobster', cursive;
+}
+
+.btn-outline-warning{
+    color:orangered;
+    border-color: orangered;
+}
+
+.btn-outline-warning:hover{
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+}
+
+.logo{
+  margin-left: 53%;
+  margin-top: -4%;
+}
+
+.slogan{
+    width:24%;
+    margin-left:72%;
+    margin-top: -40vh;
+    font-family: 'Amatic SC', cursive;
+}
+
+

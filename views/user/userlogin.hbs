@@ -1,0 +1,67 @@
+<div class="logo">
+    <img src="../images/logo2.png" alt="logo">
+</div>
+
+<div class="slogan">
+<div>
+    <h5 class="text-left text-white  fs-1 fw-normal ms-auto lh-lg">"We Provide the Best Meat in the industry. No added Preservatives. Processed in a Hygienic atmosphere. Your trusted  Meat4U... "</h5>
+</div>
+</div>
+
+<div class="mt-5 d-flex justify-content-center align-items-center">
+  <div class="logform col-md-4 p-5 shadow-sm border bg-white rounded-5 border-warning">
+    <h1 class="text-center mb-4">Login!</h1>
+    <form action="/login" method="POST" onsubmit="return myFunc()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" name="Email" value="{{emailval}}" onkeyup="emailValidate()" class="form-control bg-info bg-opacity-10 border border-dark " id="exampleInputEmail1"
+          aria-describedby="emailHelp" />
+        <div class="emailError "></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="Password" onkeyup="passwordValidate()" class="form-control bg-info bg-opacity-10 border border-dark "
+          id="exampleInputPassword1" />
+          <div class="passError "></div>
+          {{#if loginErr}}
+          <p class="bhh ">Invalid email or password!</p>
+          {{/if}}
+          {{#if blockErr}}
+          <p class="bhh">User is Blocked!</p>
+          {{/if}}
+      </div>
+      <p class="small"><a class="text-dark"></a></p>
+       <a href="/login/OtpLogin" class="text-primary" >OTP Login</a>
+      <div class="logbtn text-center">
+        <button  type="submit">Login</button>
+      </div>
+    </form>
+    <div class="mt-3">
+      <p class="mb-0 text-center">Don't have an account?
+        <a href="/login/signup" class="text-primary fw-bold">Sign Up</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{{!-- Toast --}}
+{{#if signupSuccess}}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bgmm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-check-circle-fill text-white" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+            </svg>
+            <strong class="me-auto text-white">&nbsp;SIGNUP SUCCESSFULLY</strong>
+            <small class="text-white" >1 sec ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bgmm2">
+            Now you can login with your Email and Password!.
+        </div>
+    </div>
+</div>
+{{/if}}

@@ -1,0 +1,35 @@
+<div class=" d-flex justify-content-center align-items-center">
+    <div class="col-md-4 p-5 shadow-sm bg-white border rounded-3">
+        <h2 class="text-center mb-4 text-dark">Edit User Details</h2>
+        <form action="/admin/edit-user/{{userOne._id}}" method="POST" onsubmit="return myFunc()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" onkeyup="nameValidate()" value="{{userOne.Name}}" class="form-control border border-dark" id="name01" name="Name"/>
+                <div class="nameError"></div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" onkeyup="emailValidate()" value="{{userOne.Email}}" class="form-control border border-dark" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" name="Email" />
+                    <div class="emailError"></div>
+                    {{#if emailExist}}
+                    <p class="bhh ">Email already exists!</p>
+                    {{/if}}
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">New Password</label>
+                <input type="password" onkeyup="passValidate()" class="form-control border border-dark" id="exampleInputPassword1" name="Password" />
+                <div class="passError"></div>
+            </div>
+             <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                <input type="password" onkeyup="pass2Validate()" class="form-control border border-dark" id="exampleInputPassword2" />
+                <div style="margin-top: 7px;" id="CheckPasswordMatch"></div>
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary"  type="submit">Save</button>
+            </div>
+            
+        </form>
+    </div>
+</div>

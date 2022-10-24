@@ -1,0 +1,61 @@
+	<section>
+
+    <div class="container">
+   
+    <div class="orderlist">
+   
+         <table  id="tbl_exporttable_to_xls"  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     
+     <th scope="col">Image</th>
+      <th scope="col">Ordered Date</th>
+      <th scope="col">ProductID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+      <th></th>
+      {{!-- <th scope="col">Return</th> --}}
+      
+     
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orderItems}}
+    <tr>
+      
+    <td><img style="width:10%;height:10%" src="/product-images/{{this.product.image.[0]}}"> </td>
+    <td>{{this.date}}</td>
+      <td>{{this.product.ID}}</td>
+      <td>{{this.product.name}}</td>
+      <td>{{this.quantity}}</td>
+      <td>Rs{{this.total}}/-</td>
+        {{#ifEquals this.proStatus 'returned'}}
+        <td><p class="text-danger">Product Returned</p></td>
+        {{else}}
+        {{#ifEquals this.proStatus 'refunded'}}
+         <td><p class="text-success">"Amount Is Refunded Please Check Your Wallet!!"</p></td>
+         {{/ifEquals}}
+        {{/ifEquals}}
+        
+
+      {{#ifEquals this.status 'delivered'}}
+      <td><button onclick="returnProduct('{{this._id}}','{{this.item}}')" class="btn btn-sm btn-danger">Return</button></td>
+      {{else}}
+      {{#ifEquals this.status 'cleared'}}
+      <td></td>
+      {{/ifEquals}}
+     {{/ifEquals}}
+      
+
+   
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+    </div>
+</section>
+
+
+  

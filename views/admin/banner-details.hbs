@@ -1,0 +1,105 @@
+<section>
+  <div class="heading">
+  <h1>WEDNESDAY<span>OFFER</span></h1>
+</div>
+   
+    <div class="container">
+    
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     
+      
+      <th scope="col">Product Name</th>
+      
+      <th scope="col">Description</th>
+      <th>Image</th>
+      <th scope="col">Edit</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    {{#each banner}}
+    <tr>
+     
+ 
+      <td>{{this.name}}</td>
+      <td>{{this.description}}</td>
+      <td><img style="width:50px;height:50px" src="/product-images/{{this.image.[0]}}"></td>
+      <td><a href="/admin/update-banner/{{this._id}}"><img src="/images/edit symbol.jpg" style="width:40px; height:40px" ></a></td>
+     
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+
+<div class="heading">
+  <h1>HOMEPAGE<span>BANNER</span></h1>
+</div>
+ 
+   
+    <div class="container">
+    
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     
+      
+    
+      <th>Image</th>
+      <th scope="col">Edit</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    {{#each mainBanner}}
+    <tr>
+      <td><img style="width:50px;height:50px" src="/product-images/{{this.image.[0]}}"></td>
+      <td><a href="/admin/update-main-banner/{{this._id}}"><img src="/images/edit symbol.jpg" style="width:40px; height:40px" ></a></td>
+     
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+
+
+   <section>
+  <div class="heading">
+  <h1>MONTHLY<span>OFFER</span>BANNER</h1>
+</div>
+   
+    <div class="container">
+    
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     
+      
+      <th scope="col">Month</th>
+      
+      <th scope="col">Offer</th>
+      <th>Image</th>
+      <th scope="col">Edit</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    {{#each monthlyBanner}}
+    <tr>
+     
+ 
+      <td>{{this.month}}</td>
+      <td>{{this.offer}}</td>
+      <td><img style="width:50px;height:50px" src="/product-images/{{this.image.[0]}}"></td>
+      <td><a href="/admin/update-monthlybanner/{{this._id}}"><img src="/images/edit symbol.jpg" style="width:40px; height:40px" ></a></td>
+     
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+
+
+</section>

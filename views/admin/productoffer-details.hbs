@@ -1,0 +1,34 @@
+<section>
+   
+    <div class="container">
+    
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+     
+      <th scope="col">Product ID</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category</th>
+         <th scope="col">Offer</th>
+         <th scope="col">Offer Price</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      
+      <td>{{this.ID}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.price}}/-</td>
+      <td>{{this.category}}</td>
+        <td>{{this.offer}}%</td>
+       <td>{{this.offerPrice}}/-</td>
+      
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>

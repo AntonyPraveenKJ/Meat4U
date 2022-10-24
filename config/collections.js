@@ -1,0 +1,19 @@
+module.exports={
+    USER_COLLECTION:'user',
+    ADMIN_COLLECTION:'admin',
+    PRODUCT_COLLECTION:'product',
+    CATEGORY_COLLECTION:'category',
+    CART_COLLECTION:'cart', 
+    ORDER_COLLECTION:'order',
+    BANNER_COLLECTION:'banner',
+    HOMEPAGEBANNER_COLLECTION:'homepagebanner',
+    MONTHLYBANNER_COLLECTION:'monthlybanner',
+    ADDRESS_COLLECTION:'address',
+    WISHLIST_COLLECTION:'wishlist',
+    CATEGORYOFFER_COLLECTION:'category_offer',
+    COUPON_COLLECTION:'coupon_offer',
+    WALLET_COLLECTION:'wallet',
+    USEDCOUPON_COLLECTION:'used_coupon',
+    MOBILENO_COLLECTION:'mobile',
+    ORDEREDPRODUCT_COLLECTION:'ordered_products'
+    }

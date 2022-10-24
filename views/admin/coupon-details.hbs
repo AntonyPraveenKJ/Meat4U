@@ -1,0 +1,39 @@
+
+                            
+ <div class="heading">
+  <h1>COUPON<span>DETAILS</span></h1>
+</div>
+
+
+                            <section>
+   
+    <div class="container">
+    
+         <table  class="table table-striped table-hover mt-5 bg-white">
+  <thead>
+    <tr>
+      <th>No</th>
+                                                <th>Name</th>
+                                                <th>Coupon Code</th>
+                                                <th>Offer</th>
+                                                <th>Expiry Date</th>
+                                                <th>Edit</th>
+												<th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+   {{#each coupon}}
+                                            <tr>
+                                                <td>{{inc @index}}</td>
+                                                <td>{{this.name}}</td>
+                                                <td>{{this.code}}</td>
+                                                <td>{{this.offer}}%</td>
+                                                <td>{{this.expiryDate}}</td> 
+                                                <td><a  href="/admin/editCoupon/{{this._id}}" class="btn btn-danger shadow btn-sm sharp">Edit</a></td> 
+                                                <td><a  href="/admin/deleteCoupon/{{this._id}}"  onclick="return confirm('Are you sure you want to delete {{this.name}}?')" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a></td>
+                                            </tr>
+                                          {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>

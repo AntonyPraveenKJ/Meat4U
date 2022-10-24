@@ -1,0 +1,38 @@
+<div class="logo">
+    <img src="../images/logo2.png" alt="logo">
+</div>
+
+<div class="slogan">
+<div>
+    <h5 class="text-left text-white  fs-1 fw-normal ms-auto lh-lg">"We Provide the Best Meat in the industry. No added Preservatives. Processed in a Hygienic atmosphere. Your trusted  Meat4U... "</h5>
+</div>
+</div>
+
+<div class="mt-5 d-flex justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border border-warning">
+    
+    <h1 class="text-center mb-4 ">Admin Login!</h1>
+    <form action="/admin" method="POST" onsubmit="return myFunc()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" value="{{adminEmailval}}" name="Email" onkeyup="emailValidate()" class="form-control bg-info bg-opacity-10 border border-dark " id="exampleInputEmail1"
+          aria-describedby="emailHelp" />
+        <div class="emailError"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" name="Password" onkeyup="passwordValidate()" class="form-control bg-info bg-opacity-10 border border-dark "
+          id="exampleInputPassword1" />
+          <div class="passError"></div>
+          {{#if adminloginErr}}
+          <p class="bhh ">Invalid email or password!</p>
+          {{/if}}
+      </div>
+      <p class="small"><a class="text-dark"></a></p>
+      <div class="logbtn text-center">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

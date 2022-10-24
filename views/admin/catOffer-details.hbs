@@ -1,0 +1,21 @@
+  <div class="heading">
+  <h1>CATEGORY<span>OFFER</span></h1>
+</div>
+
+<div class="container-fluid mt-5">
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 gx-5" >
+    {{#each catOffer}}
+  <div class="col ">
+        <div class="card bg-white" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title text-start text-dark">{{this.category}}</h1>
+   
+   <h1  class="text-dark fw-bold">{{this.offer}}%</h1>
+  </div>
+  <button class="btn btn-sm btn-danger" onclick="deleteOffer('{{this.category}}')">Delete</button>
+</div>
+
+    </div>
+      {{/each}}
+    </div>
+  </div>

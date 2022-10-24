@@ -1,0 +1,30 @@
+.nav-link:active{
+    color:orangered
+}
+
+
+
+.btn-outline-warning{
+    color:orangered;
+    border-color: orangered;
+}
+
+.btn-outline-warning:hover{
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+}
+
+.nav-link{
+    color:white;
+}
+.nav-link:hover{
+    color:orangered;
+}
+.navbar-brand img{
+    width:114%;
+}
+
+.navbar-brand{
+    width:7%;
+}

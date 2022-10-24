@@ -1,0 +1,146 @@
+
+
+
+<div class="container-fluid text-center mt-5">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 gx-5" >
+  <div class="col ">
+        <div class="card bg-primary" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title text-start text-white">Orders</h1>
+   
+    <p class="card-text text-start text-white"> No.of Orders</p>
+   <h1  class="text-dark fw-bold">{{orders}}</h1>
+  </div>
+</div>
+    </div>
+
+
+    <div class="col ">
+        <div class="card bg-warning" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title text-start text-white">Users</h1>
+   
+    <p class="card-text text-start text-white"> No.of Users</p>
+   <h1 class="text-dark fw-bold">{{users}}</h1>
+  </div>
+</div>
+    </div>
+
+
+     <div class="col ">
+        <div class="card bg-danger" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title text-start text-white">Products</h1>
+   
+    <p class="card-text text-start text-white"> No.of products</p>
+   <h1  class="text-dark fw-bold">{{products}}</h1>
+  </div>
+</div>
+    </div>
+
+
+    <div class="col ">
+        <div class="card bg-success" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title text-start text-white">Total</h1>
+   
+    <p class="card-text text-start text-white">Total Amount</p>
+   <h1  class="text-dark fw-bold">{{revenue}}</h1>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="heading mt-5" style="color:orangered">
+    <h1>Payment<span style="color:black">Graph</span></h1>
+</div>
+
+
+
+<div class="mt-5">
+    <div style="width:60%;margin-left:5%">
+ <canvas id="myChart4"></canvas>
+    </div>
+ 
+</div>
+
+<div class="heading mt-5" style="color:orangered">
+    <h1>Daily<span style="color:black">Sales</span>Graph</h1>
+</div>
+
+	<div class="card-body mt-5">
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="user" role="tabpanel">
+                         <div style="width:60%;margin-left:5%">
+												<canvas id="myChart9" class="chartjs"></canvas>
+                        </div>
+											</div>
+										</div>
+									</div>
+ 
+         <script>
+            const labels4 =  [ {{#each paymentGrph}} '{{_id}}', {{/each}} ]
+            const data4 = {
+            labels: labels4,
+            datasets: [{
+            label: 'Payment Graph',
+            backgroundColor: [
+                             'rgb(255, 99, 132)',
+                             'rgb(255, 99, 132)',
+                              'rgb(255, 99, 132)',
+							 ],
+            borderColor: 'rgb(255, 99, 132)',
+            data: [ {{#each paymentGrph}} '{{TotalAmount}}', {{/each}} ],
+            }]
+            };
+
+            const config4 = {
+            type: 'bar',
+            data: data4,
+            options: {}
+            };
+        </script>
+
+        <script>
+            const myChart4 = new Chart(
+            document.getElementById('myChart4'),
+            config4
+            );
+        </script>
+
+        {{!-- daily sales Chart --}}
+
+          <script>
+		
+            const labels5 =  [ {{#each sales}} '{{_id}}', {{/each}} ]
+		
+
+            const data5 = {
+            labels: labels5,
+            datasets: [{
+            label: 'Daily Sales Graph',
+            backgroundColor: [
+                             'rgb(255, 99, 132)',
+                             'rgb(75, 192, 192)',
+                             'rgb(255, 205, 86)',
+							 ],
+            borderColor: 'rgb(255, 99, 132)',
+            data: [ {{#each sales}} '{{TotalAmount}}', {{/each}} ],
+            }]
+            };
+
+            const config5 = {
+            type: 'line',
+            data: data5,
+            options: {}
+            };
+			
+
+            const myChart5 = new Chart(
+            document.getElementById('myChart9'),
+            config5
+            );
+			
+        </script>

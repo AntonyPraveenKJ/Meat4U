@@ -1,0 +1,160 @@
+
+<div class="heading">
+  <h1>WEDNESDAY<span>OFFER</span></h1>
+</div>
+
+
+
+
+<div class="container-fluid">
+    <div class="row p-4 text-center">
+
+    <div class="mt-2 d-flex  justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border rounded-5 bg-white  border-warning">
+    
+    <h1 class="frmtitle text-center mb-4 ">Update Banner</h1>
+
+    <form action="/admin/add-new-banner/{{details._id}}" method="post" enctype="multipart/form-data">
+       <div class="inputag text-start">
+      
+
+
+ <div class="form-floating p-2">
+    <input type="text"  name="name"  value="{{details.name}}" class="form-control" id="floatingInputGroup1" placeholder="Product Name">
+    <label for="floatingInputGroup1">Product Name</label>
+  </div>
+
+
+
+
+  
+
+
+ <div class="form-floating p-2">
+    <input type="text" name="description"  value="{{details.description}}" class="form-control" id="floatingInputGroup1" placeholder="Description">
+    <label for="floatingInputGroup1">Description</label>
+  </div>
+
+
+
+ <img src="/product-images/{{details.image.[0]}}" style="width:100px; height:auto" id="imgView" class="pt-2">
+
+ <div class="input-group mb-3">
+
+  <input type="file" name="image"  class="form-control" id="inputGroupFile02" onchange="viewImage(event)">
+   <label class="input-group-text" for="inputGroupFile02">Image</label>
+</div>
+</div>
+
+<button type="submit"  class="btn btn-primary">Update</button>
+
+</form>
+ </div>
+</div>
+    </div>
+</div>
+
+
+
+<div class="heading">
+  <h1>HOMEPAGE<span>BANNER</span></h1>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row p-4 text-center">
+
+    <div class="mt-2 d-flex  justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border rounded-5 bg-white  border-warning">
+    
+    <h1 class="frmtitle text-center mb-4 ">Update HP Banner</h1>
+
+    <form action="/admin/add-home-banner/{{mainBanner._id}}" method="post" enctype="multipart/form-data">
+       <div class="inputag text-start">
+      
+<img src="/product-images/{{mainBanner.image.[0]}}" style="width:100px; height:auto" id="imgView" class="pt-2">
+
+ <div class="input-group mb-3">
+
+  <input type="file" name="image"  class="form-control" id="inputGroupFile02" onchange="viewImage(event)">
+   <label class="input-group-text" for="inputGroupFile02">Image</label>
+</div>
+</div>
+
+<button type="submit"  class="btn btn-primary">Update</button>
+
+</form>
+ </div>
+</div>
+    </div>
+</div>
+
+
+
+<div class="heading">
+  <h1>MONTHLY<span>OFFER</span>BANNER</h1>
+</div>
+
+
+
+
+<div class="container-fluid">
+    <div class="row p-4 text-center">
+
+    <div class="mt-2 d-flex  justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border rounded-5 bg-white  border-warning">
+    
+    <h1 class="frmtitle text-center mb-4 ">Update Banner</h1>
+
+    <form action="/admin/get-monthly-banner/{{monthlyDetails._id}}" method="post" enctype="multipart/form-data">
+       <div class="inputag text-start">
+      
+
+
+ <div class="form-floating p-2">
+    <input type="text"  name="month"  value="{{monthlyDetails.month}}" class="form-control" id="floatingInputGroup1" placeholder="Product Name">
+    <label for="floatingInputGroup1">Month</label>
+  </div>
+
+
+
+
+  
+
+
+ <div class="form-floating p-2">
+    <input type="text" name="offer"  value="{{monthlyDetails.offer}}" class="form-control" id="floatingInputGroup1" placeholder="Description">
+    <label for="floatingInputGroup1">Offer</label>
+  </div>
+
+
+
+ <img src="/product-images/{{monthlyDetails.image.[0]}}" style="width:100px; height:auto" id="imgView" class="pt-2">
+
+ <div class="input-group mb-3">
+
+  <input type="file" name="image"  class="form-control" id="inputGroupFile02" onchange="viewImage(event)">
+   <label class="input-group-text" for="inputGroupFile02">Image</label>
+</div>
+</div>
+
+<button type="submit"  class="btn btn-primary">Update</button>
+
+</form>
+ </div>
+</div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>

@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row p-4 text-center">
+
+    <div class="mt-2 d-flex  justify-content-center align-items-center">
+  <div  class="logform col-md-4 p-5 shadow-sm border rounded-5 bg-white  border-warning">
+    
+    <h1 class="frmtitle text-center mb-4 ">Add Category</h1>
+
+    <form action="/admin/addCategory" method="post" >
+       <div class="inputag text-start">
+        <div class="form-floating p-2">
+    <input type="text" name="category_name" class="form-control" id="floatingInputGroup1" placeholder="Enter Category">
+    <label for="floatingInputGroup1">Category</label>
+  </div>
+
+
+ <div class="form-floating p-2">
+    <input type="text"  name="description" class="form-control" id="floatingInputGroup1" placeholder="Description">
+    <label for="floatingInputGroup1">Description</label>
+  </div>
+
+</div>
+
+<button  type="submit"  class="btn btn-primary">Add</button>
+<br><br>
+</form>
+<div class="text-start">
+
+<a href="/admin/categoryList">Category List</a>
+</div>
+
+ </div>
+</div>
+    </div>
+</div>

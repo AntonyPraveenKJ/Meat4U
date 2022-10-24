@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+
+.media-body h4{
+    color: orangered;
+}
+#hov{
+    color: #002ed5;
+}
+#hov2:hover{
+    color: #002ed5;
+}
+
+.navbar span img{
+    width:40%;
+}
+
+.vertical-nav {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+  }
+  
+  .page-content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+  }
+  
+  /* for toggle behavior */
+  
+  #sidebar.active {
+    margin-left: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -17rem;
+    }
+    #sidebar.active {
+      margin-left: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-left: 17rem;
+      width: calc(100% - 17rem);
+    }
+  }
+  
+  /*
+  *
+  * ==========================================
+  * FOR DEMO PURPOSE
+  * ==========================================
+  *
+  */
+  
+  body {
+    background: #599fd9;
+    background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
+    background: linear-gradient(to right, #599fd9, #c2e59c);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+  }
+  
+  .text-uppercase {
+    letter-spacing: 0.1em;
+  }
+  
+  .text-gray {
+    color: #aaa;
+  }
+
+  .btn-outline-warning{
+    color:orangered;
+    border-color: orangered;
+}
+
+.btn-outline-warning:hover{
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+}
+
+.nav-link:active{
+    color:orangered
+}
+
+.navbar-brand img{
+    width:114%;
+}
+
+.navbar-brand{
+    width:7%;
+}
+
+.btn-outline-warning{
+    color:orangered;
+    border-color: orangered;
+}
+
+.btn-outline-warning:hover{
+    background-color: orangered;
+    color: white;
+    border-color: orangered;
+}
+
+.nav-link{
+    color:white;
+}
+.nav-link:hover{
+    color:orangered;
+}
+
+.logform h1{
+  color:orangered;
+}
+
+.form-floating{
+  text-align: start;
+}
