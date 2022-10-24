@@ -55,7 +55,7 @@ router.get('/adminhome',verify2,async(req, res, next)=> {
   let users=await productHelpers.totalUsers()
   let products=await productHelpers.totalProducts()
   let revenue=await productHelpers.totalRevenue()
-  res.render('admin/admin-home' ,{ admin:true,title: 'Admin Home' , link1: '/stylesheets/admin-home.css' });
+  res.render('admin/admin-home' ,{ admin:true,paymentGrph,sales,orders,users,products,revenue,title: 'Admin Home' , link1: '/stylesheets/admin-home.css' });
 });
 
 
