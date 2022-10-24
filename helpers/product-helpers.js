@@ -505,96 +505,96 @@ countOrderMonthly:(dt)=>{
   })
 },
 
-paymentGraph:()=>{
-  return new Promise(async(resolve,reject)=>{
-      let paymentGrph=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
-        {
-          $project:{
-              date: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
-              totalAmount:1,
-              paymentMethod:1
-          }
-        },
-        {
-          $group:{
-              _id:'$paymentMethod',
-              TotalAmount:{$sum:'$totalAmount'}
-          }
-        }
-      ]).toArray()
+// paymentGraph:()=>{
+//   return new Promise(async(resolve,reject)=>{
+//       let paymentGrph=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
+//         {
+//           $project:{
+//               date: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+//               totalAmount:1,
+//               paymentMethod:1
+//           }
+//         },
+//         {
+//           $group:{
+//               _id:'$paymentMethod',
+//               TotalAmount:{$sum:'$totalAmount'}
+//           }
+//         }
+//       ]).toArray()
      
-      resolve(paymentGrph)
-  })
-},
+//       resolve(paymentGrph)
+//   })
+// },
 
 
-totalOrders:()=>{
-  return new Promise((resolve,reject)=>{
-  let total=  db.get().collection(collection.ORDER_COLLECTION).countDocuments()
-  resolve(total)
-  })
-},
+// totalOrders:()=>{
+//   return new Promise((resolve,reject)=>{
+//   let total=  db.get().collection(collection.ORDER_COLLECTION).countDocuments()
+//   resolve(total)
+//   })
+// },
 
-totalUsers:()=>{
-  return new Promise((resolve,reject)=>{
-    let total=db.get().collection(collection.USER_COLLECTION).countDocuments()
-    resolve(total)
-  })
-},
+// totalUsers:()=>{
+//   return new Promise((resolve,reject)=>{
+//     let total=db.get().collection(collection.USER_COLLECTION).countDocuments()
+//     resolve(total)
+//   })
+// },
 
-totalProducts:()=>{
-  return new Promise((resolve,reject)=>{
-    let total=db.get().collection(collection.PRODUCT_COLLECTION).countDocuments()
-    resolve(total)
-  })
-},
+// totalProducts:()=>{
+//   return new Promise((resolve,reject)=>{
+//     let total=db.get().collection(collection.PRODUCT_COLLECTION).countDocuments()
+//     resolve(total)
+//   })
+// },
 
-totalRevenue:()=>{
-  return new Promise(async(resolve,reject)=>{
-  let total=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
-      {
-        $match:{
-          status:{$nin:['cancelled']}
-        }
-      },
-      {
-        $project:{
-         totalAmount:1
-        }
-      },
-      {
-        $group:{
-          _id:null,
-          total:{$sum:'$totalAmount'}
-        }
-      }
-    ]).toArray()
-    resolve(total[0].total)
-  })
-},
+// totalRevenue:()=>{
+//   return new Promise(async(resolve,reject)=>{
+//   let total=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
+//       {
+//         $match:{
+//           status:{$nin:['cancelled']}
+//         }
+//       },
+//       {
+//         $project:{
+//          totalAmount:1
+//         }
+//       },
+//       {
+//         $group:{
+//           _id:null,
+//           total:{$sum:'$totalAmount'}
+//         }
+//       }
+//     ]).toArray()
+//     resolve(total[0].total)
+//   })
+// },
 
-salesGrph:()=>{
-  return new Promise(async(resolve,reject)=>{
-      let sales=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
-          {
-             $project:{
-              date:1,
-              totalAmount:1
-             } 
-          },
-          {
-              $group:{
-                  _id:{$dateToString: { format: "%Y-%m-%d", date: "$date" }},
-                  TotalAmount:{$sum:'$totalAmount'},
-                  count:{$sum:1}
-              }
-          },
-          { $sort : { _id: 1 } }
-      ]).toArray()
+// salesGrph:()=>{
+//   return new Promise(async(resolve,reject)=>{
+//       let sales=await db.get().collection(collection.ORDER_COLLECTION).aggregate([
+//           {
+//              $project:{
+//               date:1,
+//               totalAmount:1
+//              } 
+//           },
+//           {
+//               $group:{
+//                   _id:{$dateToString: { format: "%Y-%m-%d", date: "$date" }},
+//                   TotalAmount:{$sum:'$totalAmount'},
+//                   count:{$sum:1}
+//               }
+//           },
+//           { $sort : { _id: 1 } }
+//       ]).toArray()
      
-      resolve(sales)
-  })
-},
+//       resolve(sales)
+//   })
+// },
 
 addCoupon:(couponDetials)=>{
   let response={};

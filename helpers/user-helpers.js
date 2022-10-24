@@ -4,23 +4,22 @@ const bcrypt = require('bcrypt')
 const { response } = require('../app')
 let objectId = require('mongodb').ObjectId
 const Razorpay = require('razorpay')
-require('dotenv')
 var instance = new Razorpay({
-    key_id:process.env.RAZORPAY_KEY_ID,
-    key_secret:process.env.RAZORPAY_SECERET_ID
+    key_id: 'rzp_test_hgAYyEycsUwtIb',
+    key_secret:'sIiRmGaAUF5JEmlZybcohazU'
 });
 const otp=require('../config/otpLogin')
-const accountSid = process.env.ACCOUNT_SID;
-const authToken = process.env.AUTH_TOKEN;
-const serviceId=process.env.SERVICE_ID
+const accountSid = "ACf77a1426e7e373fbbbbb863f6be5b8c5";
+const authToken = "b74f667bb46a6184c48818cc24939ec8";
+const serviceId="VA76235caaf7ee1321c16cd28580b94273"
 const client = require('twilio')(accountSid, authToken);
 
 const paypal = require('paypal-rest-sdk');
  
 paypal.configure({
   'mode': 'sandbox', //sandbox or live
-  'client_id': process.env.PAYPAL_CLIENT_ID,
-  'client_secret': process.env.PAYPAL_CLIENT_SECRET
+  'client_id': 'AeLVOVXAU0X2IQSjoCah_Hokn-78u_JV9uBL76cjZtXlSGkRw__OUhNnsCl0nK8iZiy2Zbawu-OhxVmH',
+  'client_secret': 'EBNKLA10mgCOa06K266AhZqeBa0yRuXlwmJ01-_nKOr59FWWNXjGWLSWZ2bfr8BR0WNkOfmjBj52vSTW'
 });
 
 const math=require('mathjs')
@@ -1001,6 +1000,7 @@ getMobileno:()=>{
 resendOtp:(userData)=>{
     let response={};
     return new Promise(async(resolve,reject)=>{
+        //console.log(userData,'mobileno.')
         let user= await db.get().collection(collection.USER_COLLECTION).findOne({Number:userData.mobile})
         if(user){
             if(user.status){

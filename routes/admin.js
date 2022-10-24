@@ -49,13 +49,13 @@ let verify2 = ((req,res,next)=>{
   }
 })
 router.get('/adminhome',verify2,async(req, res, next)=> {
-  let paymentGrph=await productHelpers.paymentGraph()
-  let sales=await productHelpers.salesGrph()
-  let orders=await productHelpers.totalOrders()
-  let users=await productHelpers.totalUsers()
-  let products=await productHelpers.totalProducts()
-  let revenue=await productHelpers.totalRevenue()
-  res.render('admin/admin-home' ,{ admin:true,paymentGrph,orders,users, products,revenue,sales,title: 'Admin Home' , link1: '/stylesheets/admin-home.css' });
+  // let paymentGrph=await productHelpers.paymentGraph()
+  // let sales=await productHelpers.salesGrph()
+  // let orders=await productHelpers.totalOrders()
+  // let users=await productHelpers.totalUsers()
+  // let products=await productHelpers.totalProducts()
+  // let revenue=await productHelpers.totalRevenue()
+  res.render('admin/admin-home' ,{ admin:true,title: 'Admin Home' , link1: '/stylesheets/admin-home.css' });
 });
 
 
