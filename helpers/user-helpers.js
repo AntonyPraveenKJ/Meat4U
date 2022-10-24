@@ -670,8 +670,8 @@ generatePaypal:(orderId,totalRate)=>{
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": `http://localhost:3000/login/order-success/${orderId}/${totalRate}`,
-                "cancel_url": "http://localhost:3000/cancel"
+                "return_url": `http://meat4uu.ml/login/order-success/${orderId}/${totalRate}`,
+                "cancel_url": "http://meat4uu.ml/cancel"
             },
             "transactions": [{
                 "item_list": {
