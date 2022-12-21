@@ -16,3 +16,10 @@ https://user-images.githubusercontent.com/109066110/208909250-ad3621cc-9a8b-435f
 
 
 https://user-images.githubusercontent.com/109066110/208910308-8420945d-546c-421e-97d4-9a68ad6a5b19.mp4
+
+
+ADMIN SIDE
+
+https://user-images.githubusercontent.com/109066110/208911045-5a2b43b8-cc33-4e0c-a881-5fb15a100351.mp4
+
+
